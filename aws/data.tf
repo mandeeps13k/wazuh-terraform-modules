@@ -82,6 +82,6 @@ data "aws_iam_policy_document" "firehose_execution_policy_kms" {
       "s3:PutObjectAcl"
     ]
     effect    = "Allow"
-    resources = ["arn:aws:s3:::wazuh-kms-events-bucket", "arn:aws:s3:::wazuh-kms-events-bucket/*"]
+    resources = ["arn:${local.partition}:s3:::${var.kms-events-bucket-name}", "arn:${local.partition}:s3:::${var.kms-events-bucket-name}/*"]
   }
 }
