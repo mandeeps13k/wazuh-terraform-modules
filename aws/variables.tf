@@ -6,13 +6,11 @@ variable "delivery_stream_name" {
 
 variable "bucket_prefix" {
   type        = string
-  default     = ""
   description = "AWS account name to receive guard duty alerts"
 }
 
 variable "admin_account_id" {
   type        = string
-  default     = ""
   description = "The AWS account ID to manage admin components."
 }
 
@@ -24,13 +22,11 @@ variable "admin_account_region" {
 
 variable "guardduty-events-bucket-name" {
   type        = string
-  default     = "wazuh-guardduty-findings"
   description = "The name of the S3 bucket to store GuardDuty findings in the admin account."
 }
 
 variable "kms-events-bucket-name" {
   type        = string
-  default     = "wazuh-kms-events"
   description = "The name of the S3 bucket to store GuardDuty findings in the admin account."
 }
 
