@@ -89,7 +89,7 @@ resource "aws_kinesis_firehose_delivery_stream" "extended_s3_stream_kms" {
 
   extended_s3_configuration {
     role_arn   = aws_iam_role.firehose_iam_role_kms.arn
-    bucket_arn = "arn:aws:s3:::wazuh-kms-events-bucket"
+    bucket_arn = "arn:${local.partition}:s3:::${var.kms-events-bucket-name}"
     prefix     = "${var.bucket_prefix}/"
 
     processing_configuration {
