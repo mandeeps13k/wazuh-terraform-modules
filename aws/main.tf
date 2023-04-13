@@ -149,3 +149,4 @@ resource "aws_iam_role_policy_attachment" "cloudwatch_iam_role_policy_attachment
 resource "aws_iam_role_policy_attachment" "event_bus_invoke_remote_event_bus_kms_attachment" {
   role       = aws_iam_role.cloudwatch_wazuh_role_kms.name
   policy_arn = aws_iam_policy.event_bus_invoke_remote_event_bus.arn
+}
