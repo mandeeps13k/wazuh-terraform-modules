@@ -4,9 +4,10 @@ resource "aws_kinesis_firehose_delivery_stream" "extended_s3_stream" {
   destination = "extended_s3"
 
   extended_s3_configuration {
-    role_arn   = aws_iam_role.firehose_iam_role.arn
-    bucket_arn = "arn:${local.partition}:s3:::${var.guardduty-events-bucket-name}"
-    prefix     = "${var.bucket_prefix}/"
+    role_arn        = aws_iam_role.firehose_iam_role.arn
+    bucket_arn      = "arn:${local.partition}:s3:::${var.guardduty-events-bucket-name}"
+    prefix          = "${var.bucket_prefix}/"
+    buffer_interval = 60
 
     processing_configuration {
       enabled = false
@@ -88,9 +89,10 @@ resource "aws_kinesis_firehose_delivery_stream" "extended_s3_stream_kms" {
   destination = "extended_s3"
 
   extended_s3_configuration {
-    role_arn   = aws_iam_role.firehose_iam_role_kms.arn
-    bucket_arn = "arn:${local.partition}:s3:::${var.kms-events-bucket-name}"
-    prefix     = "${var.bucket_prefix}/"
+    role_arn        = aws_iam_role.firehose_iam_role_kms.arn
+    bucket_arn      = "arn:${local.partition}:s3:::${var.kms-events-bucket-name}"
+    prefix          = "${var.bucket_prefix}/"
+    buffer_interval = 60
 
     processing_configuration {
       enabled = false
