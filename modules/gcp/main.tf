@@ -54,6 +54,3 @@ resource "google_project_iam_member" "subscriber" {
   member = "serviceAccount:${google_service_account.subscriber.email}"
 }
 
-output "sa_key" {
-  value = google_service_account_key.subscriber_key.private_key
-}
